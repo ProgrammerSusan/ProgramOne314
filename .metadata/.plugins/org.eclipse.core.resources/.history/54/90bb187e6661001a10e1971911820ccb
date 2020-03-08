@@ -1,0 +1,64 @@
+package relations;
+
+import java.util.*;
+import java.io.*;
+import java.io.IOException;
+
+public class Symmetric {
+	public static void main(String[] args) throws IOException {
+		String file = "";
+        try{
+            relations = new Scanner(new FileInputStream("C:\\Users\\Mahdi\\Desktop\\ProgramOne314\\Reldata.txt"));
+            String line = relations.nextLine();
+            while(relations.hasNextLine()) {
+            	if(!line.trim().isEmpty()) {
+                	file += line + "\n";
+                	line = relations.nextLine();
+            	}
+            	else {
+            		line = relations.nextLine();
+            	}
+            }
+            relations.close();
+         }
+         catch(Exception e){
+            System.out.println("Problem Reading File");
+         }
+        String[] lines = file.split(System.getProperty("line.separator"));
+        int [] indexes = new int[6];
+        int index = 0;
+        for(int i = 0; i < lines.length; i++) {
+        	if(lines[i].charAt(0) != '1' || lines[i].charAt(0) != '0') {
+        		indexes[index] = i;
+        		index++;
+        	}
+        	
+        }
+        int [][] relationOne = getMatrix(lines, indexes, 0);
+        int [][] relationTwo = getMatrix(lines, indexes, 1);
+        int [][] relationThree = getMatrix(lines, indexes, 2);
+        int [][] relationFour = getMatrix(lines, indexes, 3);
+        int [][] relationFive= getMatrix(lines, indexes, 4);
+        int [][] relationSix = getMatrix(lines, indexes, 5);
+        
+        for(int i = 0; i < 8; i++) {
+			for(int j = 0; j < 8; j++) {
+				System.out.print(relationOne[i][j]);
+			}
+		}
+        
+		
+	}
+	
+	public static Scanner relations = new Scanner(System.in);
+	
+	private static int[][] getMatrix(String[] s, int[] indexes, int index){
+		int [][] relationMatrix = new int[8][8];
+		for(int i = 0; i < 8; i++) {
+			for(int j = 0; j < 8; j++) {
+				relationMatrix[i][j] = s[i + index].charAt(j);
+			}
+		}
+		return relationMatrix;
+	}
+}

@@ -1,0 +1,36 @@
+package relations;
+
+import java.util.*;
+import java.io.*;
+import java.io.IOException;
+
+public class Symmetric {
+	public static void main(String[] args) throws IOException {
+		String file = "";
+        try{
+            relations = new Scanner(new FileInputStream("C:\\Users\\Mahdi\\Desktop\\ProgramOne314\\Reldata.txt"));
+            String line = relations.nextLine();
+            while(relations.hasNextLine()) {
+            	if(!line.trim().isEmpty()) {
+                	file += line + "\n";
+                	line = relations.nextLine();
+            	}
+            	else {
+            		line = relations.nextLine();
+            	}
+            }
+            relations.close();
+         }
+         catch(Exception e){
+            System.out.println("Problem Reading File");
+         }
+        String[] lines = file.split(System.getProperty("line.separator"));
+        for(int i = 0; i < lines.length; i++) {
+        	System.out.println(lines[i])
+        }
+		
+	}
+	
+	public static Scanner relations = new Scanner(System.in);
+	
+}
