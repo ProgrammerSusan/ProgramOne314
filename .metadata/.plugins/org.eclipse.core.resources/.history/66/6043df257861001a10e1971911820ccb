@@ -105,16 +105,10 @@ public class Symmetric {
             		for(int i = 0; i < line.length(); i+=2) {
             			relationSix[counter][i/2] = 							Character.getNumericValue(line.charAt(i));
             		}
-            		line = relations.nextLine();
             		if(!relations.hasNextLine()) {
-            			counter++;
-            			for(int i = 0; i < line.length(); i+=2) {
-                			relationSix[counter][i/2] = 							Character.getNumericValue(line.charAt(i));
-                		}
+            			line = relations.nextLine();
             		}
-            		else {
-                    	counter++;
-            		}
+                	counter++;
             	}
             }
             relations.close();
