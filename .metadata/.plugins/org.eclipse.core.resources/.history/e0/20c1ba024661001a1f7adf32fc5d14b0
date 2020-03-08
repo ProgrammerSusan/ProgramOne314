@@ -1,0 +1,26 @@
+package relations;
+
+import java.util.*;
+import java.io.*;
+import java.io.IOException;
+
+public class Symmetric {
+	public static void main(String[] args) throws IOException {
+		RandomAccessFile relations = new RandomAccessFile("Reldata.txt","rw");
+		
+	}
+	
+	public static Scanner input = null; 
+	public static Scanner keyboard = new Scanner(System.in);
+	public static PrintWriter out = null;
+	public static PrintWriter output = null;
+	public static Scanner in = null;
+	   
+	public void isSymmetric() {
+		
+	}
+	
+	public void printMatrix() {
+		
+	}
+}

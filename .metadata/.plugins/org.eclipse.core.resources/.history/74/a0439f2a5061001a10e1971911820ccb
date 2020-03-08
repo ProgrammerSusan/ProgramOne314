@@ -1,0 +1,53 @@
+package relations;
+
+import java.util.*;
+import java.io.*;
+import java.io.IOException;
+
+public class Symmetric {
+	public static void main(String[] args) throws IOException {
+		String array = "";
+        try{
+            relations = new Scanner(new FileInputStream("C:\\Users\\Mahdi\\Desktop\\ProgramOne314\\Reldata.txt"));
+            String file = "";
+            String line = relations.nextLine();
+            while(relations.hasNextLine()) {
+            	if(line.trim().isEmpty()) {
+                	file += "\n";
+                	line = relations.nextLine();
+            	}
+            	else {
+                	file += line;
+                	line = relations.nextLine();
+            	}
+            }
+    		System.out.print(file);
+            relations.close();
+         }
+         catch(Exception e){
+            System.out.println("Problem Reading File");
+         }
+        
+		relations.close();
+		
+	}
+	
+	public static Scanner relations = new Scanner(System.in);
+	public static PrintWriter output = null;
+	   
+	public void isSymmetric() {
+		
+	}
+	
+	private static void getMatrix (String line) {
+//		String line = relations.nextLine();
+//        while(relations.hasNextLine()) {
+//        	if(line == "") {
+//        		line = relations.nextLine();
+//        	}
+//        	else if(line.charAt(0) == '1' || line.charAt(0) == '0') {
+//        		
+//        	}
+//        }
+	}
+}
