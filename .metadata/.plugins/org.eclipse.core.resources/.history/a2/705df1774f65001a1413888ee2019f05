@@ -6,6 +6,7 @@ import java.io.IOException;
 
 public class Symmetric {
 	public static void main(String[] args) throws IOException {
+		String file = "";
 		boolean relation1 = true;
 		boolean relation2 = false;
 		boolean relation3 = false;
@@ -39,7 +40,7 @@ public class Symmetric {
             		}
             		else {
             			for(int i = 0; i < line.length(); i+=2) {
-                			relationOne[counter][i/2] = Character.getNumericValue(line.charAt(i));
+                			relationOne[counter][i/2] = 							Character.getNumericValue(line.charAt(i));
                 		}
                 		counter++;
                 		line = relations.nextLine();
@@ -53,7 +54,7 @@ public class Symmetric {
             		}
             		else {
             			for(int i = 0; i < line.length(); i+=2) {
-                			relationTwo[counter][i/2] = Character.getNumericValue(line.charAt(i));
+                			relationTwo[counter][i/2] = 							Character.getNumericValue(line.charAt(i));
                 		}
                 		counter++;
                 		line = relations.nextLine();
@@ -67,7 +68,7 @@ public class Symmetric {
             		}
             		else {
             			for(int i = 0; i < line.length(); i+=2) {
-                			relationThree[counter][i/2] = Character.getNumericValue(line.charAt(i));
+                			relationThree[counter][i/2] = 							Character.getNumericValue(line.charAt(i));
                 		}
                 		counter++;
                 		line = relations.nextLine();
@@ -81,7 +82,7 @@ public class Symmetric {
             		}
             		else {
             			for(int i = 0; i < line.length(); i+=2) {
-                			relationFour[counter][i/2] = Character.getNumericValue(line.charAt(i));
+                			relationFour[counter][i/2] = 							Character.getNumericValue(line.charAt(i));
                 		}
                 		counter++;
                 		line = relations.nextLine();
@@ -94,7 +95,7 @@ public class Symmetric {
             		}
             		else {
             			for(int i = 0; i < line.length(); i+=2) {
-                			relationFive[counter][i/2] = Character.getNumericValue(line.charAt(i));
+                			relationFive[counter][i/2] = 							Character.getNumericValue(line.charAt(i));
                 		}
                 		counter++;
                 		line = relations.nextLine();
@@ -102,13 +103,13 @@ public class Symmetric {
             	}
             	else {
             		for(int i = 0; i < line.length(); i+=2) {
-            			relationSix[counter][i/2] = Character.getNumericValue(line.charAt(i));
+            			relationSix[counter][i/2] = 							Character.getNumericValue(line.charAt(i));
             		}
             		line = relations.nextLine();
             		if(!relations.hasNextLine()) {
             			counter++;
             			for(int i = 0; i < line.length(); i+=2) {
-                			relationSix[counter][i/2] = Character.getNumericValue(line.charAt(i));
+                			relationSix[counter][i/2] = 							Character.getNumericValue(line.charAt(i));
                 		}
             		}
             		else {
@@ -121,31 +122,17 @@ public class Symmetric {
          catch(Exception e){
             System.out.println("Problem Reading File" + e);
          }
-        
-        System.out.print(isSymmetric(relationThree));
 		
 	}
 	
 	public static Scanner relations = new Scanner(System.in);
 	
-	public static void printMatrix(int[][] matrix){
+	public void printMatrix(int[][] matrix){
 		for(int i = 0; i < matrix.length; i++) {
 			for(int j = 0; j < 8; j++) {
 				System.out.print(matrix[i][j]);
 			}
 			System.out.println();
 		}
-	}
-	
-	public static boolean isSymmetric(int [][] matrix) {
-		int c = 1;
-		for(int r = 0; r < matrix.length; r++) {
-			for(c++; c < matrix.length; c++) {
-				if(matrix[r][c] != matrix[c][r]) {
-					return false;
-				}
-			}
-		}
-		return true;
 	}
 }

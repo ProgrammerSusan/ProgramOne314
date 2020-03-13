@@ -122,7 +122,7 @@ public class Symmetric {
             System.out.println("Problem Reading File" + e);
          }
         
-        System.out.print(isSymmetric(relationThree));
+        System.out.print(isSymmetric(relationOne));
 		
 	}
 	

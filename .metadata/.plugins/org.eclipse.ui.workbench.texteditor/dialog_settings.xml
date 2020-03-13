@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="relations"/>
+		<item key="selection" value=""/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="counter == 8"/>
+			<item value="new int[8][8];"/>
 			<item value="input"/>
 		</list>
 		<list key="replacehistory">
+			<item value="counter == 7"/>
 			<item value="relations"/>
 		</list>
 	</section>
