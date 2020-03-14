@@ -122,12 +122,12 @@ public class Symmetric {
             System.out.println("Problem Reading File" + e);
          }
         
-        isEquivalenceRelation(relationOne);
-        isEquivalenceRelation(relationTwo);
-        isEquivalenceRelation(relationThree);
-        isEquivalenceRelation(relationFour);
-        isEquivalenceRelation(relationFive);
-        isEquivalenceRelation(relationSix);
+        isEquivalenceRelation(relationOne, checkSymmetric(relationOne), checkAntiSymmetric(relationOne), checkReflexive(relationOne), checkTransitive(relationOne));
+        isEquivalenceRelation(relationTwo, checkSymmetric(relationTwo), checkAntiSymmetric(relationTwo), checkReflexive(relationTwo), checkTransitive(relationTwo));
+        isEquivalenceRelation(relationThree, checkSymmetric(relationThree), checkAntiSymmetric(relationThree), checkReflexive(relationThree), checkTransitive(relationThree));
+        isEquivalenceRelation(relationFour, checkSymmetric(relationFour), checkAntiSymmetric(relationFour), checkReflexive(relationFour), checkTransitive(relationFour));
+        isEquivalenceRelation(relationFive, checkSymmetric(relationFive), checkAntiSymmetric(relationFive), checkReflexive(relationFive), checkTransitive(relationFive));
+        isEquivalenceRelation(relationSix, checkSymmetric(relationSix), checkAntiSymmetric(relationSix), checkReflexive(relationSix), checkTransitive(relationSix));
         
 		
 	}
@@ -137,7 +137,7 @@ public class Symmetric {
 	public static void printMatrix(int[][] matrix){
 		for(int i = 0; i < matrix.length; i++) {
 			for(int j = 0; j < 8; j++) {
-				System.out.print(matrix[i][j] + " ");
+				System.out.print(matrix[i][j]);
 			}
 			System.out.println();
 		}
@@ -153,7 +153,7 @@ public class Symmetric {
 				}
 			}
 		}
-		System.out.println("is symmetric");
+		System.out.println(" is symmetric");
 		return true;
 	}
 	
@@ -163,7 +163,7 @@ public class Symmetric {
 				if(i != j) {
 					if(matrix[i][j] == 1) {
 						if(matrix[j][i] == 1) {
-							System.out.println("is not antisymmetric because both ("+i+", "+j
+							System.out.println(" is not antisymmetric because both ("+i+", "+j
 									+ ") and ("+j+", "+i+") are in the set.");
 							return false;
 						}
@@ -171,7 +171,6 @@ public class Symmetric {
 				}
 			}
 		}
-		System.out.println("is antisymmetric");
 		return true;
 	}
 	
@@ -216,18 +215,11 @@ public class Symmetric {
 		return true;
 	}
         	
-    public static void isEquivalenceRelation(int[][] matrix) {
+    public static void isEquivalenceRelation(int[][] matrix, boolean symmetric, boolean antisymmetric, boolean reflexive, boolean transitive) {
     	System.out.println("The matrix: ");
     	System.out.println();
     	printMatrix(matrix);
-
-    	boolean symmetric, antisymmetric, reflexive, transitive;
-    	symmetric = checkSymmetric(matrix);
-    	antisymmetric = checkAntiSymmetric(matrix);
-    	reflexive = checkReflexive(matrix);
-    	transitive = checkTransitive(matrix);
-    	
-    	if(symmetric && reflexive && transitive) {
+    	if(symmetric && antisymmetric && reflexive && transitive) {
     		System.out.println("is an equivalence relation");
     		System.out.println();
     	}
