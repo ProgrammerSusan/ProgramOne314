@@ -122,12 +122,7 @@ public class Symmetric {
             System.out.println("Problem Reading File" + e);
          }
         
-        isEquivalenceRelation(checkSymmetric(relationOne), checkAntiSymmetric(relationOne), checkReflexive(relationOne), checkTransitive(relationOne));
-        isEquivalenceRelation(checkSymmetric(relationTwo), checkAntiSymmetric(relationTwo), checkReflexive(relationTwo), checkTransitive(relationTwo));
-        isEquivalenceRelation(checkSymmetric(relationThree), checkAntiSymmetric(relationThree), checkReflexive(relationThree), checkTransitive(relationThree));
-        isEquivalenceRelation(checkSymmetric(relationFour), checkAntiSymmetric(relationFour), checkReflexive(relationFour), checkTransitive(relationFour));
-        isEquivalenceRelation(checkSymmetric(relationFive), checkAntiSymmetric(relationFive), checkReflexive(relationFive), checkTransitive(relationFive));
-        isEquivalenceRelation(checkSymmetric(relationSix), checkAntiSymmetric(relationSix), checkReflexive(relationSix), checkTransitive(relationSix));
+        isEquivalenceRelation(checkSymmetric(relationOne), checkAnitsymmetric(relationOne), checkReflexive(relationOne), checkTransitive(relationOne));
         
 		
 	}

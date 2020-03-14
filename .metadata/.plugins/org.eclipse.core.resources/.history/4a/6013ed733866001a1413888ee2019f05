@@ -122,13 +122,6 @@ public class Symmetric {
             System.out.println("Problem Reading File" + e);
          }
         
-        isEquivalenceRelation(checkSymmetric(relationOne), checkAntiSymmetric(relationOne), checkReflexive(relationOne), checkTransitive(relationOne));
-        isEquivalenceRelation(checkSymmetric(relationTwo), checkAntiSymmetric(relationTwo), checkReflexive(relationTwo), checkTransitive(relationTwo));
-        isEquivalenceRelation(checkSymmetric(relationThree), checkAntiSymmetric(relationThree), checkReflexive(relationThree), checkTransitive(relationThree));
-        isEquivalenceRelation(checkSymmetric(relationFour), checkAntiSymmetric(relationFour), checkReflexive(relationFour), checkTransitive(relationFour));
-        isEquivalenceRelation(checkSymmetric(relationFive), checkAntiSymmetric(relationFive), checkReflexive(relationFive), checkTransitive(relationFive));
-        isEquivalenceRelation(checkSymmetric(relationSix), checkAntiSymmetric(relationSix), checkReflexive(relationSix), checkTransitive(relationSix));
-        
 		
 	}
 	
@@ -201,8 +194,7 @@ public class Symmetric {
 		
 		return returnVal;
 	}
-    
-	public static boolean checkTransitive(int[][] matrix) {
+        	public static boolean checkTransitive(int[][] matrix) {
 		int[][] compareMatrix = fogMatrix(matrix);
 		for(int i = 0; i < matrix.length; i++) {
 			for(int j = 0; j < matrix.length; j++) {
@@ -215,7 +207,7 @@ public class Symmetric {
 		return true;
 	}
         	
-    public static void isEquivalenceRelation(boolean symmetric, boolean antisymmetric, boolean reflexive, boolean transitive) {
+    public void isEquivalenceRelation(boolean symmetric, boolean antisymmetric, boolean reflexive, boolean transitive) {
     	if(symmetric && antisymmetric && reflexive && transitive) {
     		System.out.println("is an equivalence relation");
     	}
