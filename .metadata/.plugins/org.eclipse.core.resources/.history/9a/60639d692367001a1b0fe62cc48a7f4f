@@ -260,9 +260,6 @@ public class Symmetric {
     	reflexive = checkReflexive(matrix);
     	transitive = checkTransitive(matrix);
     	
-    	if(!transitive) {
-    		transitiveClosure(matrix);
-    	}
     	if(symmetric && reflexive && transitive) {
     		System.out.println("is an equivalence relation");
     		System.out.println();
@@ -295,7 +292,7 @@ public class Symmetric {
     			}
     		}
     	}
-    	System.out.println("The transitive closure is:");
+    	System.out.println("The transitive closure is:")
     	for(int i = 0; i < closure.length; i++) {
     		for(int j = 0; j <  closure.length; j++) {
     			System.out.print(closure[i][j] + " ");
