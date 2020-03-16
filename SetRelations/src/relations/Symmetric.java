@@ -133,15 +133,48 @@ public class Symmetric {
 	}
 	
 	public static Scanner relations = new Scanner(System.in);
+	public static  ArrayList<Integer>[] pairs = new ArrayList[8];
 	
 	public static void printMatrix(int[][] matrix){
+		for (int i = 0; i < 8; i++) { 
+	        pairs[i] = new ArrayList<Integer>(); 
+	    } 
 		for(int i = 0; i < matrix.length; i++) {
 			for(int j = 0; j < 8; j++) {
+				if(matrix[i][j] == 1) {
+					int n = 0;
+					while(n < 8) {
+						if(pairs[n].size() == 0 && i == j) {
+							pairs[n].add(i);
+							n = 9;
+						}
+						else if(pairs[n].size() == 0 && i != j) {
+							pairs[n].add(i);
+							pairs[n].add(j);
+							n = 9;
+						}
+						else if(pairs[n].contains(i) && !pairs[n].contains(j)) {
+							pairs[n].add(j);
+							n = 9;
+						}
+						else if(pairs[n].contains(j) && !pairs[n].contains(i)) {
+							pairs[n].add(i);
+							n = 9;
+						}
+						else if(pairs[n].contains(i) || pairs[n].contains(j)) {
+							n = 8;
+						}
+						else {
+							n++;
+						}
+					}
+				}
 				System.out.print(matrix[i][j] + " ");
+				}
+				System.out.println();
 			}
 			System.out.println();
 		}
-	}
 	
 	public static boolean checkSymmetric(int [][] matrix) {
 		int c = 1;
@@ -192,9 +225,8 @@ public class Symmetric {
 		for(int i = 0; i < matrix.length; i++) {
 			for(int j = 0; j < matrix.length; j++) {
 				for(int k = 0; k < matrix.length; k++) {
-					if(matrix[i][k] == 1 || matrix[k][j] == 1) {
+					if(matrix[i][k] == 1 && matrix[k][j] == 1) {
 						returnVal[i][j] = 1;
-						break;
 					}
 				}
 			}
@@ -213,6 +245,7 @@ public class Symmetric {
 				}
 			}
 		}
+		System.out.println("is transitive");
 		return true;
 	}
         	
@@ -230,7 +263,16 @@ public class Symmetric {
     	if(symmetric && reflexive && transitive) {
     		System.out.println("is an equivalence relation");
     		System.out.println();
-    	}
+    		System.out.println("The equivalence classes are: ");
+    		System.out.print("[ ");
+    		for(int i = 0; i < pairs.length; i++) {
+    			if(pairs[i].size() != 0) {
+        			System.out.print(pairs[i].toString() + " ");
+        		}
+    		}
+    		System.out.println("] ");
+    		
+    	} 
     	else {
     		System.out.println("is not an equivalence relation");
     		System.out.println();
